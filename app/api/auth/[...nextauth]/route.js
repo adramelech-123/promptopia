@@ -19,8 +19,6 @@ const handler = NextAuth({
 
       
       session.user.id = sessionUser._id.toString();
-      console.log(session.user.id);
-      
       return session;
     },
 
