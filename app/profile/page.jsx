@@ -8,7 +8,7 @@ import Profile from '@components/Profile'
 
 const ProfilePage = () => {
   const router = useRouter()  
-  const { data: session } = useSession()  
+  const { data: session} = useSession()  
   const [posts, setPosts] = useState([])
 
   // Fetch the Prompt Data from API
