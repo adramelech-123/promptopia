@@ -45,7 +45,11 @@ export const PATCH = async (req, {params}) => {
 export const DELETE = async (req, {params}) => {
   try {
     await connectDB();
-    const prompt = await Prompt.findByIdAndRemove(params.id);
+    const deletedPrompt = await Prompt.findByIdAndRemove(params.id);
+
+    if (!deletedPrompt) {
+      throw new Error("Prompt not found"); // Handle non-existent prompt
+    }
 
     return new Response("Prompt deleted successfully!", { status: 200 });
   } catch (error) {
